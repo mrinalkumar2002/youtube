@@ -1,0 +1,166 @@
+/* HomePage.css - polished YouTube-like listing */
+
+/* page container */
+.homepage-root {
+  font-family: Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #111;
+  background: #fff;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* top area padding to give space for filterbar */
+.homepage-root > .top-spacer {
+  height: 20px;
+}
+
+/* overall content wrapper */
+.homepage-root .content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 18px 20px;
+}
+
+/* heading / category label */
+.homepage-root h3 {
+  margin: 8px 0 18px 12px;
+  font-weight: 500;
+  color: #444;
+  font-size: 18px;
+}
+
+/* video grid */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;                 /* space between cards */
+  align-items: start;
+  padding: 0 12px 60px 12px; /* keep some bottom spacing */
+}
+
+/* video card */
+.video-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(17,17,17,0.06);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.video-card:focus,
+.video-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 36px rgba(17,17,17,0.12);
+  outline: none;
+}
+
+/* thumbnail wrapper keeps aspect ratio and allows large images like your screenshot */
+.thumb-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9; /* maintain 16:9 height regardless of width */
+  overflow: hidden;
+  background: #000;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+
+/* thumbnail image */
+.thumb-wrap .thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* important to crop like screenshot */
+  display: block;
+  transform-origin: center;
+  transition: transform 250ms ease;
+}
+
+/* gentle zoom effect on hover (subtle) */
+.video-card:hover .thumb-wrap .thumb {
+  transform: scale(1.03);
+}
+
+/* duration badge top-right */
+.thumb-wrap .duration {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  background: rgba(0,0,0,0.75);
+  color: #fff;
+  padding: 4px 8px;
+  font-weight: 600;
+  font-size: 12px;
+  border-radius: 6px;
+  backdrop-filter: blur(4px);
+}
+
+/* meta area under thumbnail */
+.video-card .meta {
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* title */
+.video-card h3 {
+  font-size: 15px;
+  line-height: 1.25;
+  margin: 0;
+  color: #111;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  max-height: 2.6em; /* clamp roughly two lines */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* secondary info row */
+.video-card .sub {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: #666;
+  font-size: 13px;
+}
+
+/* channel / author name */
+.video-card .channel {
+  font-weight: 500;
+  color: #555;
+}
+
+/* view & age */
+.video-card .views {
+  color: #888;
+  font-size: 12.5px;
+}
+
+/* no-videos message centered */
+.homepage-root .no-videos {
+  padding: 80px 12px;
+  text-align: center;
+  color: #777;
+  font-size: 18px;
+}
+
+/* responsive tweaks */
+@media (max-width: 900px) {
+  .video-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .video-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .video-card h3 {
+    font-size: 16px;
+  }
+}
+

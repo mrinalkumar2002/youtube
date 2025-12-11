@@ -1,0 +1,275 @@
+/* CommentSection.css
+   Neutral, YouTube-like styling (responsive).
+   Targets the class names used in your component.
+*/
+
+/* --- Layout & root --- */
+.cs-root {
+    max-width: 820px;
+    margin: 16px auto;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #0f1724;
+    background: transparent;
+}
+
+/* Heading */
+.cs-root>h2 {
+    font-size: 16px;
+    margin: 0 0 12px 0;
+    font-weight: 600;
+    color: #111827;
+}
+
+/* --- Form / input area --- */
+.cs-form {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+
+/* avatar circle */
+.cs-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #e6e7ea;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #111827;
+    flex-shrink: 0;
+    user-select: none;
+}
+
+/* body next to avatar */
+.cs-body {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* username input */
+.cs-username {
+    width: 320px;
+    max-width: 100%;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #e6e9ee;
+    background: #fff;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* textarea */
+.cs-textarea {
+    width: 100%;
+    padding: 10px;
+    min-height: 72px;
+    border-radius: 8px;
+    border: 1px solid #e6e9ee;
+    resize: vertical;
+    font-size: 14px;
+    line-height: 1.4;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+/* controls row: char count + buttons */
+.cs-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+/* small char count */
+.cs-controls>span {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+/* buttons container */
+.cs-controls>div {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* plain cancel button */
+.cs-controls button[type="button"] {
+    padding: 7px 12px;
+    border-radius: 6px;
+    background: transparent;
+    border: 1px solid #e5e7eb;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+/* submit button */
+.cs-controls button[type="submit"] {
+    padding: 7px 14px;
+    border-radius: 6px;
+    background: #0f62fe;
+    /* primary */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+/* disabled submit visual */
+.cs-controls button[disabled],
+.cs-controls button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* inline error message */
+.cs-error {
+    color: #b91c1c;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+/* --- Comments list --- */
+.cs-list-wrap {
+    margin-top: 8px;
+}
+
+/* count header */
+.cs-list-wrap>div:first-child {
+    color: #374151;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+/* list */
+.cs-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid #f3f4f6;
+}
+
+/* single comment */
+.cs-item {
+    display: flex;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+/* item avatar smaller */
+.cs-item .cs-avatar {
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+    background: #eef2ff;
+}
+
+/* right side */
+.cs-item-right {
+    flex: 1;
+    min-width: 0;
+}
+
+/* top row: name, time, actions */
+.cs-item-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* name */
+.cs-item-name {
+    font-weight: 700;
+    font-size: 14px;
+    color: #0f1724;
+}
+
+/* time */
+.cs-item-time {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+/* delete button (text) */
+.cs-delete {
+    margin-left: auto;
+    background: transparent;
+    border: none;
+    color: #ef4444;
+    font-size: 13px;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 6px;
+}
+
+/* on small screens, move delete to next line */
+.cs-item-top>.cs-delete {
+    margin-left: 12px;
+}
+
+/* comment text */
+.cs-item-text {
+    margin-top: 6px;
+    font-size: 14px;
+    color: #111827;
+    white-space: pre-wrap;
+}
+
+/* empty state */
+.cs-list .cs-empty,
+.cs-list>div {
+    padding: 12px 0;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+/* focus styles for accessibility */
+.cs-username:focus,
+.cs-textarea:focus,
+.cs-controls button:focus,
+.cs-delete:focus {
+    outline: 3px solid rgba(14, 165, 233, 0.15);
+    outline-offset: 2px;
+    box-shadow: none;
+}
+
+/* --- Responsive --- */
+@media (max-width: 560px) {
+    .cs-form {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .cs-avatar {
+        width: 48px;
+        height: 48px;
+    }
+
+    .cs-controls {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+
+    .cs-controls>div {
+        justify-content: flex-end;
+    }
+
+    .cs-item-top {
+        gap: 6px;
+    }
+
+    .cs-item-top>.cs-delete {
+        margin-left: 0;
+        order: 2;
+    }
+}

@@ -1,0 +1,301 @@
+/* ======================================================================
+   VideoPage.css — Updated (less side space, smaller top padding,
+   better responsiveness)
+   ====================================================================== */
+/* === Layout Fix: Sidebar + Video Page === */
+
+/* If your sidebar width is fixed (240px expanded / 80px collapsed) */
+:root {
+    --sidebar-width: 70px;
+    --sidebar-width-collapsed: 58px;
+}
+
+/* Main wrapper pushes content to the right of sidebar */
+.vp-root {
+    margin-left: var(--sidebar-width);
+    padding: 20px;
+    transition: margin-left 0.25s ease;
+}
+
+/* When sidebar is collapsed, apply smaller margin */
+body.sidebar-collapsed .vp-root {
+    margin-left: var(--sidebar-width-collapsed);
+}
+
+/* Ensure video page takes full width beside sidebar */
+.vp-main {
+    display: flex;
+    gap: 20px;
+}
+:root {
+    --vp-max-width: 1350px;
+    /* Wider container so right gap reduces */
+    --vp-gap: 18px;
+    /* Slightly smaller gap */
+    --vp-muted: #606060;
+    --vp-border: #e3e3e3;
+    --vp-bg: #fff;
+    --vp-accent: #cc0000;
+}
+
+/* ROOT CONTAINER */
+.vp-root {
+    display: flex;
+    justify-content: center;
+    padding: 10px 12px;
+    /* smaller top padding */
+    background: #f9f9f9;
+    min-height: 100vh;
+    box-sizing: border-box;
+    margin-top: 65px;
+    /* space under fixed navbar */
+}
+
+/* MAIN GRID: VIDEO LEFT + SIDEBAR RIGHT */
+.vp-main {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    /* reduce sidebar width */
+    gap: var(--vp-gap);
+    width: 100%;
+    max-width: var(--vp-max-width);
+}
+
+/* MAIN VIDEO AREA */
+.vp-player-area {
+    background: var(--vp-bg);
+    padding: 10px 14px;
+    /* reduced padding */
+    border-radius: 8px;
+    border: 1px solid var(--vp-border);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* PLAYER WRAPPER 16:9 */
+.vp-player-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    overflow: hidden;
+    background: #000;
+    border-radius: 8px;
+}
+
+.vp-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* TITLE */
+.vp-title {
+    font-size: 20px;
+    margin: 14px 0 6px;
+    line-height: 1.25;
+}
+
+/* STATS & ACTION BUTTONS */
+.vp-stats-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: var(--vp-muted);
+}
+
+.vp-stats span {
+    margin-right: 4px;
+}
+
+.vp-dot {
+    margin: 0 6px;
+}
+
+.vp-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.vp-action {
+    border: 1px solid var(--vp-border);
+    padding: 8px 12px;
+    background: #f3f3f3;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.vp-action:hover {
+    filter: brightness(0.96);
+}
+
+/* CHANNEL INFO ROW */
+.vp-channel-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-top: 1px solid var(--vp-border);
+    border-bottom: 1px solid var(--vp-border);
+}
+
+.vp-avatar {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.vp-channel-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.vp-channel-name {
+    font-weight: 600;
+}
+
+.vp-channel-subs {
+    font-size: 13px;
+    color: var(--vp-muted);
+}
+
+.vp-subscribe {
+    margin-left: auto;
+    padding: 10px 14px;
+    background: var(--vp-accent);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* DESCRIPTION */
+.vp-description {
+    padding: 12px 0;
+    font-size: 15px;
+    color: var(--vp-muted);
+}
+
+.vp-desc-text {
+    max-height: 4.5em;
+    overflow: hidden;
+}
+
+.vp-description.open .vp-desc-text {
+    max-height: none;
+}
+
+.vp-desc-toggle {
+    background: transparent;
+    border: none;
+    color: var(--vp-accent);
+    cursor: pointer;
+    margin-top: 6px;
+}
+
+/* SIDEBAR (RIGHT VIDEO LIST) */
+.vp-side {
+    background: var(--vp-bg);
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--vp-border);
+    height: fit-content;
+}
+
+.vp-side-title {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.vp-side-item {
+    display: flex;
+    gap: 10px;
+    text-decoration: none;
+    margin-bottom: 12px;
+    color: inherit;
+}
+
+.vp-side-thumb {
+    width: 120px;
+    height: 70px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+.vp-side-meta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.vp-side-title-text {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.vp-side-views {
+    font-size: 12px;
+    color: var(--vp-muted);
+    margin-top: 4px;
+}
+
+/* LOADING / ERROR BOXES */
+.vp-loading,
+.vp-error,
+.vp-empty {
+    padding: 12px;
+    border-radius: 8px;
+    background: var(--vp-bg);
+    border: 1px solid var(--vp-border);
+}
+
+/* ======================================================================
+   RESPONSIVE DESIGN
+   ====================================================================== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .vp-main {
+        grid-template-columns: 1fr 260px;
+    }
+}
+
+/* Smaller Tablets */
+@media (max-width: 900px) {
+    .vp-main {
+        grid-template-columns: 1fr;
+    }
+
+    .vp-side {
+        margin-top: 20px;
+        width: 100%;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .vp-root {
+        padding: 6px;
+    }
+
+    .vp-player-area {
+        padding: 8px;
+    }
+
+    .vp-side-item {
+        gap: 8px;
+    }
+
+    .vp-side-thumb {
+        width: 100px;
+        height: 60px;
+    }
+
+    .vp-title {
+        font-size: 17px;
+    }
+}

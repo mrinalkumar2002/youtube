@@ -1,0 +1,181 @@
+/* Sidebar.css - Responsive */
+
+/* Base (desktop) */
+.sidebar {
+    position: fixed;
+    top: 64px;
+    /* under topbar */
+    left: 0;
+    width: 260px;
+    /* expanded width */
+    height: calc(100vh - 64px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: #fff;
+    border-right: 1px solid #eee;
+    transition: width 200ms ease, transform 220ms ease;
+    z-index: 900;
+    padding: 8px 6px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+/* collapsed state: narrow, clip everything */
+.sidebar.collapsed {
+    width: 72px;
+    /* collapsed width */
+    overflow-x: hidden;
+}
+
+/* each row */
+.side-section {
+    padding: 6px 4px 12px 8px;
+}
+
+/* item row */
+.side-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* icon area */
+.side-icon {
+    width: 28px;
+    min-width: 28px;
+    text-align: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+/* label text: allow smooth collapse/hide */
+.side-text {
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition: opacity 140ms ease, max-width 140ms ease, margin 140ms ease;
+}
+
+/* IMPORTANT: when collapsed hide the label and center the icon */
+.sidebar.collapsed .side-text {
+    display: none;
+    opacity: 0;
+    max-width: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* center icons in collapsed state */
+.sidebar.collapsed .side-item {
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* divider and footer */
+.divider {
+    border: none;
+    height: 1px;
+    background: #f0f0f0;
+    margin: 8px 6px;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    padding: 12px 8px;
+    font-size: 12px;
+    color: #888;
+}
+
+/* small cosmetic: subtle scrollbar */
+.sidebar::-webkit-scrollbar {
+    width: 10px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.06);
+    border-radius: 10px;
+}
+
+/* Make sure layout below topbar remains correct on shorter heights */
+@media (max-height: 620px) {
+    .sidebar {
+        top: 56px;
+        height: calc(100vh - 56px);
+    }
+
+    .sidebar.collapsed {
+        top: 56px;
+        height: calc(100vh - 56px);
+    }
+}
+
+/* Tablet tweaks */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 220px;
+    }
+
+    .sidebar.collapsed {
+        width: 68px;
+    }
+
+    .side-text {
+        max-width: 140px;
+    }
+}
+
+/* Sidebar mobile overlay + backdrop (if not already present) */
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        top: 56px;
+        /* match your mobile navbar height */
+        left: 0;
+        width: 260px;
+        height: calc(100vh - 56px);
+        transform: translateX(-110%);
+        /* hidden by default */
+        transition: transform 260ms cubic-bezier(.2, .9, .2, 1);
+        z-index: 1200;
+        box-shadow: 0 8px 24px rgba(2, 6, 23, 0.12);
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+        /* slide in */
+    }
+
+    .sidebar-backdrop {
+        position: fixed;
+        inset: 56px 0 0 0;
+        /* below navbar */
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.36);
+        z-index: 1100;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 200ms ease;
+    }
+
+    .sidebar-backdrop.visible {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    /* When sidebar open, prevent body scroll */
+    body.sidebar-open {
+        overflow: hidden;
+    }
+}

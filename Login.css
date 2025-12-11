@@ -1,0 +1,127 @@
+/* src/Pages/Login.css */
+
+/* Page layout */
+.login-page {
+    min-height: calc(100vh - 56px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px;
+    background: linear-gradient(180deg, #fafafa 0%, #fff 100%);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* Card */
+.login-card {
+    width: 100%;
+    max-width: 420px;
+    background: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    padding: 20px 22px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+}
+
+/* Top row with title and home button */
+.login-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.login-top h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+/* Inputs */
+label {
+    display: block;
+    margin-top: 12px;
+    font-size: 13px;
+    color: #333;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px 12px;
+    margin-top: 6px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+input:disabled {
+    opacity: 0.7;
+}
+
+/* Buttons */
+.home-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid transparent;
+    background: transparent;
+    cursor: pointer;
+    padding: 6px 8px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.home-button:hover {
+    background: #f6f6f6;
+}
+
+.login-submit {
+    width: 100%;
+    margin-top: 16px;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #ff0000;
+    color: #fff;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.login-submit:disabled {
+    opacity: 0.8;
+    cursor: not-allowed;
+}
+
+/* Error */
+.login-error {
+    margin-top: 10px;
+    color: #9b1c1c;
+    background: #fff5f5;
+    border: 1px solid #ffd6d6;
+    padding: 8px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+/* Footer text */
+.login-footer {
+    margin-top: 14px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.login-footer a {
+    color: #111;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+@media (max-width: 480px) {
+    .login-card {
+        padding: 16px;
+        border-radius: 8px;
+    }
+}

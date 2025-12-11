@@ -1,0 +1,36 @@
+html,
+body,
+#root {
+    height: auto;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    /* page scroll enabled */
+}
+
+/* layout - sidebar can be position: fixed or static
+   but we must avoid inner overflow: auto that creates its own scrollbar */
+.app-grid {
+    display: grid;
+    grid-template-columns: var(--sidebar-width, 240px) 1fr;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* ensure inner containers don't force their own scrollbars */
+.sidebar,
+.main-content,
+.homepage-root {
+    overflow: visible;
+    /* important: avoids nested scrollbars */
+}
+
+/* style a nice page scrollbar (optional) */
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.18);
+    border-radius: 8px;
+}

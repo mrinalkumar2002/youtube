@@ -1,0 +1,63 @@
+/* Home.css — YouTube layout accurate */
+
+:root {
+    --navbar-height: 64px;
+    --sidebar-width: 240px;
+    --sidebar-collapsed: 72px;
+}
+
+/* Content scroll area */
+.content {
+    position: relative;
+    margin-top: var(--navbar-height);
+    margin-left: var(--sidebar-width);
+    padding: 24px 24px;
+    /* YouTube horizontal spacing */
+    height: calc(100vh - var(--navbar-height));
+    overflow-y: auto;
+    transition: margin-left 200ms ease;
+    box-sizing: border-box;
+}
+
+/* When sidebar collapses */
+.content.sidebar-collapsed {
+    margin-left: var(--sidebar-collapsed);
+}
+
+/* Tablet adjustments */
+@media (max-width: 1024px) {
+    :root {
+        --navbar-height: 56px;
+        --sidebar-width: 200px;
+        --sidebar-collapsed: 68px;
+    }
+
+    .content {
+        margin-top: var(--navbar-height);
+        padding: 20px;
+    }
+}
+
+/* Mobile: sidebar overlays -> content full width */
+@media (max-width: 768px) {
+    :root {
+        --navbar-height: 56px;
+    }
+
+    .content {
+        margin-left: 0;
+        margin-top: var(--navbar-height);
+        padding: 16px;
+    }
+}
+
+/* Very small phones */
+@media (max-width: 420px) {
+    :root {
+        --navbar-height: 52px;
+    }
+
+    .content {
+        padding: 12px;
+    }
+}

@@ -1,0 +1,52 @@
+/* FilterBar.css - pill style filter */
+
+.filter-bar {
+  width: 100%;
+  background: #fff;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(17,17,17,0.04);
+  top: 64px; /* if you have a navbar at top, adjust this (or 0 if none) */
+  z-index: 40;
+}
+
+/* horizontal pill row */
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  overflow-x: auto;
+  padding-bottom: 6px;
+}
+
+/* pills */
+.filter-btn {
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: #fff;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 140ms ease, color 140ms ease, box-shadow 140ms ease;
+}
+
+/* active pill */
+.filter-btn.active {
+  background: #111;
+  color: #fff;
+  border-color: #111;
+  box-shadow: 0 6px 18px rgba(17,17,17,0.08);
+}
+
+/* subtle hover */
+.filter-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(17,17,17,0.04);
+}
+
+/* make the horizontal row look neat on mobile */
+.filter-buttons::-webkit-scrollbar {
+  display: none;
+}

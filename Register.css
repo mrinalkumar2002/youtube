@@ -1,0 +1,104 @@
+/* src/Pages/Register.css */
+
+.register-page {
+    min-height: calc(100vh - 56px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px;
+    background: linear-gradient(180deg, #fafafa, #fff);
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.register-card {
+    width: 100%;
+    max-width: 420px;
+    background: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    padding: 22px;
+    box-shadow: 0 8px 26px rgba(0, 0, 0, 0.05);
+}
+
+.home-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 6px 8px;
+    border-radius: 8px;
+}
+
+.home-button:hover {
+    background: #f4f4f4;
+}
+
+h2 {
+    margin: 10px 0 18px;
+    font-size: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 12px;
+    font-size: 13px;
+    color: #444;
+}
+
+input {
+    width: 100%;
+    padding: 10px 12px;
+    margin-top: 6px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    outline: none;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+input:focus {
+    border-color: #999;
+}
+
+button[type="submit"] {
+    margin-top: 18px;
+    width: 100%;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 8px;
+    background: #ff0000;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+button[disabled] {
+    opacity: 0.8;
+    cursor: not-allowed;
+}
+
+.form-error {
+    margin-top: 10px;
+    background: #fff4f4;
+    border: 1px solid #ffd6d6;
+    padding: 8px 10px;
+    border-radius: 6px;
+    color: #b00000;
+    font-size: 13px;
+}
+
+.form-footer {
+    margin-top: 14px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.form-footer a {
+    font-weight: 600;
+    color: #111;
+    text-decoration: none;
+}
